@@ -1,4 +1,5 @@
 
+# See here for image contents: https://github.com/f0i/devcontainer-dfinity
 FROM f0ide/devcontainer-dfinity
 
 # [Optional] Uncomment this section to install additional OS packages.
@@ -13,3 +14,6 @@ FROM f0ide/devcontainer-dfinity
 
 # [Optional] Uncomment if you want to install more global node modules
 # RUN su node -c "npm install -g <your-package-list-here>"
+
+# [Optional] Uncomment if you want to use Rust
+# RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -t wasm32-unknown-unknown -y

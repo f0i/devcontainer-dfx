@@ -1,5 +1,5 @@
 
-# Motoko Development Container
+# Motoko/Rust Development Container
 
 This project contains the Dockerfile for the [VS Code development container](https://code.visualstudio.com/docs/remote/containers).
 
@@ -11,22 +11,25 @@ To use this you have to create a directory `.devcontainer` in your project and a
 
 ```json
 {
-	"name": "dfinity",
-	"build": {
-		"dockerfile": "Dockerfile"
-	},
-	"settings": {
-		"terminal.integrated.shell.linux": "/bin/bash"
-	},
-	"extensions": [
-		"dbaeumer.vscode-eslint",
-		"dfinity-foundation.vscode-motoko"
-	],
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "yarn install",
-	"remoteUser": "node"
+ "name": "dfx",
+ "build": {
+  "dockerfile": "Dockerfile"
+ },
+ "mounts": [
+  "source=${localWorkspaceFolder}/.config/dfx,target=/home/node/.config/dfx,type=bind"
+ ],
+ "settings": {
+  "terminal.integrated.shell.linux": "/bin/bash"
+ },
+ "extensions": [
+  "dbaeumer.vscode-eslint",
+  "dfinity-foundation.vscode-motoko"
+ ],
+ // Use 'forwardPorts' to make a list of ports inside the container available locally.
+ // "forwardPorts": [],
+ // Use 'postCreateCommand' to run commands after the container is created.
+ // "postCreateCommand": "yarn install",
+ "remoteUser": "node"
 }
 ```
 
@@ -47,6 +50,9 @@ FROM f0ide/devcontainer-dfinity
 
 # [Optional] Uncomment if you want to install more global node modules
 # RUN su node -c "npm install -g <your-package-list-here>"
+
+# [Optional] Uncomment if you want to use Rust
+# RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -t wasm32-unknown-unknown -y
 ```
 
 ## Usage
