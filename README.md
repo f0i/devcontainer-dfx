@@ -66,3 +66,14 @@ This will download the docker image and setup the development container.
 
 After that you can [open a terminal](https://code.visualstudio.com/docs/editor/integrated-terminal)
 and [start developing in Motoko](https://sdk.dfinity.org/docs/developers-guide/tutorials/at-a-glance.html).
+
+
+## Development
+
+The `./tests/` directory contains some script to test the build process.
+You can run all test using make inside the devcontainer.
+
+```bash
+cd tests
+make test-all
+```

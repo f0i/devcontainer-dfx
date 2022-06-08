@@ -1,0 +1,4 @@
+# backup this directory somewhere private
+/.config
+# test files
+/tests/test_project
